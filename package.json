@@ -1,0 +1,15 @@
+{
+  "name": "mongofire",
+  "version": "1.0.0",
+  "description": "use firebase rdb like struture in your mongodb",
+  "main": "mongoFire.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-query": "^2.2.2",
+    "uuid": "^3.3.2"
+  }
+}
