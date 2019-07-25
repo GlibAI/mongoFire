@@ -75,7 +75,7 @@ class mongoFireRef {
             }
             return new snapshotClass();
         } catch (e) {
-            console.log(e)
+            throw e;
             if (callback && typeof callback === 'function') {
                 callback(snapshot)
             }
@@ -115,7 +115,6 @@ class mongoFireRef {
                     //jp.value(main_doc, ref_path, data);
                     let setObject = { '$set': {} };
                     setObject['$set'][ref_path] = refDoc;
-                    console.log(setObject)
                     await that.db.collection(that.path[0]).findOneAndUpdate({ '_id': that.path[1] }, setObject);
                 }else{
                     throw new Error('No document to update');
@@ -129,7 +128,6 @@ class mongoFireRef {
                     Object.assign(main_doc, data);
                     //jp.value(main_doc, ref_path, data);
                     let setObject = { '$set': main_doc };
-                    console.log(setObject)
                     await that.db.collection(that.path[0]).findOneAndUpdate({ '_id': that.path[1] }, setObject);
                 }else{
                     throw new Error('No document to update');
