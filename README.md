@@ -14,7 +14,8 @@ async function handler(req, res) {
         client = await MongoClient.connect(url, { useNewUrlParser: true });
         mdb = client.db(dbName);
         db = new mongoFire(client, mdb);
-        db.ref('testFlows').child('data').set({'test':'test'})
+        await db.ref('testFlows').child('data').set({'test':'test'});
+        client.close();
     } catch (e) { 
         console.log(e);
     }
